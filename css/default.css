@@ -1,0 +1,32 @@
+.navbar-right{
+    margin-top: 0px;   
+    color: #7f7e80;
+    margin-right: 10px;
+}
+a {
+    
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+input {
+    margin: 10px;
+}
+
+#submit_pw{
+    color: black
+}
+
+.large_text_field{
+    min-width: 275px;
+    min-height: 150px;
+    text-align: left;
+    vertical-align: text-top;
+}
+code {
+    background: black;
+    color:white;
+}

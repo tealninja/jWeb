@@ -1,16 +1,19 @@
 <?php
 include 'core/init.php';
+protect_page();
 include 'includes/overall/header.php';
 include 'includes/header.php';
 include 'includes/leftnav.php';
 include 'includes/content.php';
 
 ?>
-<h1>Welcome to vWeb</h1>
+<h1>Report Search</h1>
 <p>
-Thank you for visiting vWeb! We hope you have lots of good data to share with us!
+This page allows you to search the reports which have been submitted using various terms.
 </p>
-<h2>About us</h2>
+<p>
+Currently the only type of report supported is the <code><strong>Quick Equipment Report</strong></code>.
+</p>
 
 <?php
 

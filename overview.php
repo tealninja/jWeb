@@ -1,17 +1,21 @@
 <?php
 include 'core/init.php';
+protect_page();
 include 'includes/overall/header.php';
 include 'includes/header.php';
 include 'includes/leftnav.php';
 include 'includes/content.php';
 
 ?>
-<h1>Welcome to vWeb</h1>
-<p>
-Thank you for visiting vWeb! We hope you have lots of good data to share with us!
-</p>
-<h2>About us</h2>
-
+<h1>Overview</h1>
+Number of users
+</br>
+Number of files reports
+</br>
+Number of patients
+</br>
+Geographical distribution of patients
+</br>
 <?php
 
 include 'includes/footer.php';
