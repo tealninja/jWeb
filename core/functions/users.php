@@ -94,13 +94,14 @@ function change_password($user_id, $password) {
 }
 
 function register_user($register_data){
+    global $db;
     array_walk($register_data, 'array_sanitize');
     $register_data['password'] =md5($register_data['password']);
     
     $fields = '`' . implode('`, `',array_keys($register_data)) . '`';
     $data = '\'' . implode('\', \'', $register_data) . '\'';
     
-    global $db->exec("INSERT INTO `user` ($fields) VALUES ($data)");
+    $db->exec("INSERT INTO `user` ($fields) VALUES ($data)");
     //send email with code appended to the user
     email($register_data['email'], 'Activate you account',"Hello" . $register_data['first_name'] . "\nYou need to activate your account; use the link below. \n\n http://localhost/secondfile/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n - JT");   
 }
