@@ -6,22 +6,24 @@ function submit_quick_report($user_id, $report_data) {
     array_walk($report_data, 'array_sanitize');
     $fields = '`' . implode('`, `',array_keys($report_data)) . '`';
     $data = '\'' . implode('\', \'', $report_data) . '\'';
-    
-    mysql_query("INSERT INTO `quick_reports` ($fields) VALUES ($data)");
+    global $db;
+    $db->exec("INSERT INTO `quick_reports` ($fields) VALUES ($data)");
     //consider sending an email to the user to confirm tha the data has been submitted. Or other users.
 }
 
 function upload_csv_file($user_id, $file_temp, $file_extn) {
     $file_path = 'data/' . substr(md5(time()),0,10) . '.' . $file_extn;
     move_uploaded_file($file_temp, $file_path);
-    mysql_query("UPDATE `user` SET `profile` = '" .  mysql_real_escape_string($file_path) . "' WHERE `user_id` = " . (int)$user_id);
+    glob $db;
+    $db->exec("UPDATE `user` SET `profile` = '" .  mysql_real_escape_string($file_path) . "' WHERE `user_id` = " . (int)$user_id);
 }
 
 function change_profile_image($user_id, $file_temp, $file_extn){
     //upload file then perform query to update the path
     $file_path = 'images/profile/' . substr(md5(time()),0,10) . '.' . $file_extn;
     move_uploaded_file($file_temp, $file_path);
-    mysql_query("UPDATE `user` SET `profile` = '" .  mysql_real_escape_string($file_path) . "' WHERE `user_id` = " . (int)$user_id);
+    global $db;
+    $db->exec("UPDATE `user` SET `profile` = '" .  mysql_real_escape_string($file_path) . "' WHERE `user_id` = " . (int)$user_id);
 }
 
 function mail_users($subject, $body) {
@@ -67,7 +69,8 @@ function update_user($user_id, $update_data) {
         $update[] = '`' . $field . '`' . ' = \'' . $data . '\'';
     }
 
-    mysql_query("UPDATE `user` SET" . implode(', ', $update) . "WHERE `user_id` = $user_id") or die(mysql_error());
+    global $db;
+    $db->exec("UPDATE `user` SET" . implode(', ', $update) . "WHERE `user_id` = $user_id") or die(mysql_error());
     echo ' finished q';
 }
 
@@ -78,7 +81,8 @@ function activate($email, $email_code) {
     
     if (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email' AND `email_code`  = '$email_code' AND `active` = 0"),0) == 1) {
         //query to update acive status
-        mysql_query("UPDATE `user` SET `active` = 1 WHERE `email` = '$email'");
+        $db;
+        $db->exec("UPDATE `user` SET `active` = 1 WHERE `email` = '$email'");
         return true;
     } else {
         return false;
@@ -88,8 +92,8 @@ function activate($email, $email_code) {
 function change_password($user_id, $password) {
     $user_id = (int)$user_id;
     $password = md5($password);
-    
-    mysql_query("UPDATE `user` SET `password` = '$password', `password_recover` = 0 WHERE `user_id` = $user_id");
+    global $db;
+    $db->exec("UPDATE `user` SET `password` = '$password', `password_recover` = 0 WHERE `user_id` = $user_id");
 
 }
 
@@ -134,19 +138,23 @@ function logged_in() {
 
 function user_exists($username){
     $username = sanitize($username);
-    $query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'"); 
+    global $db;
+    $query = $db->exec("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
     return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function email_exists($email){
     $email = sanitize($email);
-    $query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'"); 
+    global $db;
+    $query = $db->exec("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
     return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function user_active($username){
     $username = sanitize($username);
-    $query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username' AND active = 1"); 
+
+    $db;
+    $query = $db->exec("SELECT COUNT(user_id) FROM user WHERE username = '$username' AND active = 1");
     return (mysql_result($query, 0) == 1) ? true : false;
 }
 
@@ -168,8 +176,8 @@ function login($username, $password){
     //sanitize username and encrypt password
     $username = sanitize($username);
     $password = md5($password);
-    
-    return(mysql_result(mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username' AND password = '$password'"),0) == 1) ? $user_id : false;
+    global $db;
+    return(($db->query("SELECT COUNT(user_id) FROM user WHERE username = '$username' AND password = '$password'"),0) == 1) ? $user_id : false;
     
 }
 
