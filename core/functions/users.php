@@ -134,6 +134,7 @@ function logged_in() {
 
 function user_exists($username){
     $username = sanitize($username);
+    global $db;
     $query = $db->exec("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
     $result = $db->query(($query, 0) == 1) ? true : false;
     return $result;
