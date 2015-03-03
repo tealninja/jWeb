@@ -134,10 +134,8 @@ function logged_in() {
 
 function user_exists($username){
     $username = sanitize($username);
-    global $db;
-    $query = $db->exec("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
-    $result = $db->query(($query, 0) == 1) ? true : false;
-    return $result;
+    $query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
+    return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function email_exists($email){
