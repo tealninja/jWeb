@@ -100,7 +100,7 @@ function register_user($register_data){
     $fields = '`' . implode('`, `',array_keys($register_data)) . '`';
     $data = '\'' . implode('\', \'', $register_data) . '\'';
     
-    $db->query("INSERT INTO `user` ($fields) VALUES ($data)");
+    //$db->query("INSERT INTO `user` ($fields) VALUES ($data)");
     //send email with code appended to the user
     email($register_data['email'], 'Activate you account',"Hello" . $register_data['first_name'] . "\nYou need to activate your account; use the link below. \n\n http://localhost/secondfile/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n - JT");   
 }
