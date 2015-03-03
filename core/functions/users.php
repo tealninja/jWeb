@@ -7,16 +7,14 @@ function submit_quick_report($user_id, $report_data) {
     $fields = '`' . implode('`, `',array_keys($report_data)) . '`';
     $data = '\'' . implode('\', \'', $report_data) . '\'';
 
-    global $db;
-    $db->exec("INSERT INTO `quick_reports` ($fields) VALUES ($data)");
+    mysql_query("INSERT INTO `quick_reports` ($fields) VALUES ($data)");
     //consider sending an email to the user to confirm tha the data has been submitted. Or other users.
 }
 
 function upload_csv_file($user_id, $file_temp, $file_extn) {
     $file_path = 'data/' . substr(md5(time()),0,10) . '.' . $file_extn;
     move_uploaded_file($file_temp, $file_path);
-    global $db;
-    $db->exec("UPDATE `user` SET `profile` = '" .  mysql_real_escape_string($file_path) . "' WHERE `user_id` = " . (int)$user_id);
+    mysql_query("UPDATE `user` SET `profile` = '" .  mysql_real_escape_string($file_path) . "' WHERE `user_id` = " . (int)$user_id);
 }
 
 function change_profile_image($user_id, $file_temp, $file_extn){
@@ -136,17 +134,14 @@ function logged_in() {
 
 function user_exists($username){
     $username = sanitize($username);
-
-    global $db;
-    $query = $db->exec("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
+    $query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
     return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function email_exists($email){
     $email = sanitize($email);
-    global $db;
-    $query = $db->exec("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
-    return $db->query(($query, 0) == 1) ? true : false;
+    $query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
+    return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function user_active($username){
