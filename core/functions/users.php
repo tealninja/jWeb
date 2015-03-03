@@ -134,8 +134,13 @@ function logged_in() {
 
 function user_exists($username){
     $username = sanitize($username);
-    $query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
-    return (mysql_result($query, 0) == 1) ? true : false;
+    global $db;
+    $stmt = $db->prepare("SELECT COUNT(user_id) FROM `user` WHERE username =:username");
+    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    $stmt->execute();
+    return (count($stmt->fetch()) == 1) ? true : false;
+    //$query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
+    //return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function email_exists($email){
