@@ -51,22 +51,22 @@
       <file leaf-file-name="users.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/functions/users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38795987" vertical-offset="1618" max-vertical-offset="3060">
-              <caret line="102" column="14" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.7364341" vertical-offset="2326" max-vertical-offset="3162">
+              <caret line="148" column="39" selection-start-line="148" selection-start-column="39" selection-end-line="148" selection-end-column="39" />
               <folding>
-                <marker date="1425351682069" expanded="true" signature="335:387" placeholder="INSERT INTO ..." />
-                <marker date="1425351682069" expanded="true" signature="1263:1327" placeholder="SELECT `emai..." />
-                <marker date="1425351682069" expanded="true" signature="1668:1744" placeholder="SELECT COUNT..." />
-                <marker date="1425351682069" expanded="true" signature="3170:3281" placeholder="SELECT COUNT..." />
-                <marker date="1425351682069" expanded="true" signature="4030:4073" placeholder="INSERT INTO ..." />
-                <marker date="1425351682069" expanded="true" signature="4489:4543" placeholder="SELECT COUNT..." />
-                <marker date="1425351682069" expanded="true" signature="4900:4945" placeholder="SELECT ${$fi..." />
-                <marker date="1425351682069" expanded="true" signature="5179:5239" placeholder="SELECT COUNT..user..." />
-                <marker date="1425351682069" expanded="true" signature="5392:5452" placeholder="SELECT COUNT..." />
-                <marker date="1425351682069" expanded="true" signature="5613:5688" placeholder="SELECT COUNT..user..." />
-                <marker date="1425351682069" expanded="true" signature="5871:5930" placeholder="SELECT `user..." />
-                <marker date="1425351682069" expanded="true" signature="6056:6109" placeholder="SELECT `user..." />
-                <marker date="1425351682069" expanded="true" signature="6373:6460" placeholder="SELECT COUNT..user..." />
+                <marker date="1425352677087" expanded="true" signature="349:401" placeholder="INSERT INTO ..." />
+                <marker date="1425352677087" expanded="true" signature="1291:1355" placeholder="SELECT `emai..." />
+                <marker date="1425352677087" expanded="true" signature="1696:1772" placeholder="SELECT COUNT..." />
+                <marker date="1425352677087" expanded="true" signature="3198:3309" placeholder="SELECT COUNT..." />
+                <marker date="1425352677087" expanded="true" signature="4059:4102" placeholder="INSERT INTO ..." />
+                <marker date="1425352677087" expanded="true" signature="4518:4572" placeholder="SELECT COUNT..." />
+                <marker date="1425352677087" expanded="true" signature="4929:4974" placeholder="SELECT ${$fi..." />
+                <marker date="1425352677087" expanded="true" signature="5223:5283" placeholder="SELECT COUNT..user..." />
+                <marker date="1425352677087" expanded="true" signature="5450:5510" placeholder="SELECT COUNT..." />
+                <marker date="1425352677087" expanded="true" signature="5669:5744" placeholder="SELECT COUNT..user..." />
+                <marker date="1425352677087" expanded="true" signature="5927:5986" placeholder="SELECT `user..." />
+                <marker date="1425352677087" expanded="true" signature="6112:6165" placeholder="SELECT `user..." />
+                <marker date="1425352677087" expanded="true" signature="6429:6516" placeholder="SELECT COUNT..user..." />
               </folding>
             </state>
           </provider>
@@ -75,8 +75,8 @@
       <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="731" max-vertical-offset="1853">
-              <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+            <state vertical-scroll-proportion="-28.538462" vertical-offset="108" max-vertical-offset="1853">
+              <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -215,9 +215,42 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="recentsLimit" value="5" />
   </component>
-  <component name="RunManager">
-    <list size="0" />
+  <component name="RunManager" selected="JavaScript Debug.users.php">
+    <configuration default="false" name="users.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/vweb/core/functions/users.php">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.users.php" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.users.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
@@ -234,12 +267,14 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293718" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39898133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -248,8 +283,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -309,30 +342,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="731" max-vertical-offset="1853">
-          <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+        <state vertical-scroll-proportion="-28.538462" vertical-offset="108" max-vertical-offset="1853">
+          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/functions/users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38795987" vertical-offset="1618" max-vertical-offset="3060">
-          <caret line="102" column="14" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.7364341" vertical-offset="2326" max-vertical-offset="3162">
+          <caret line="148" column="39" selection-start-line="148" selection-start-column="39" selection-end-line="148" selection-end-column="39" />
           <folding>
-            <marker date="1425351682069" expanded="true" signature="335:387" placeholder="INSERT INTO ..." />
-            <marker date="1425351682069" expanded="true" signature="1263:1327" placeholder="SELECT `emai..." />
-            <marker date="1425351682069" expanded="true" signature="1668:1744" placeholder="SELECT COUNT..." />
-            <marker date="1425351682069" expanded="true" signature="3170:3281" placeholder="SELECT COUNT..." />
-            <marker date="1425351682069" expanded="true" signature="4030:4073" placeholder="INSERT INTO ..." />
-            <marker date="1425351682069" expanded="true" signature="4489:4543" placeholder="SELECT COUNT..." />
-            <marker date="1425351682069" expanded="true" signature="4900:4945" placeholder="SELECT ${$fi..." />
-            <marker date="1425351682069" expanded="true" signature="5179:5239" placeholder="SELECT COUNT..user..." />
-            <marker date="1425351682069" expanded="true" signature="5392:5452" placeholder="SELECT COUNT..." />
-            <marker date="1425351682069" expanded="true" signature="5613:5688" placeholder="SELECT COUNT..user..." />
-            <marker date="1425351682069" expanded="true" signature="5871:5930" placeholder="SELECT `user..." />
-            <marker date="1425351682069" expanded="true" signature="6056:6109" placeholder="SELECT `user..." />
-            <marker date="1425351682069" expanded="true" signature="6373:6460" placeholder="SELECT COUNT..user..." />
+            <marker date="1425352677087" expanded="true" signature="349:401" placeholder="INSERT INTO ..." />
+            <marker date="1425352677087" expanded="true" signature="1291:1355" placeholder="SELECT `emai..." />
+            <marker date="1425352677087" expanded="true" signature="1696:1772" placeholder="SELECT COUNT..." />
+            <marker date="1425352677087" expanded="true" signature="3198:3309" placeholder="SELECT COUNT..." />
+            <marker date="1425352677087" expanded="true" signature="4059:4102" placeholder="INSERT INTO ..." />
+            <marker date="1425352677087" expanded="true" signature="4518:4572" placeholder="SELECT COUNT..." />
+            <marker date="1425352677087" expanded="true" signature="4929:4974" placeholder="SELECT ${$fi..." />
+            <marker date="1425352677087" expanded="true" signature="5223:5283" placeholder="SELECT COUNT..user..." />
+            <marker date="1425352677087" expanded="true" signature="5450:5510" placeholder="SELECT COUNT..." />
+            <marker date="1425352677087" expanded="true" signature="5669:5744" placeholder="SELECT COUNT..user..." />
+            <marker date="1425352677087" expanded="true" signature="5927:5986" placeholder="SELECT `user..." />
+            <marker date="1425352677087" expanded="true" signature="6112:6165" placeholder="SELECT `user..." />
+            <marker date="1425352677087" expanded="true" signature="6429:6516" placeholder="SELECT COUNT..user..." />
           </folding>
         </state>
       </provider>
