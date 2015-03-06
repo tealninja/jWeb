@@ -101,7 +101,21 @@ function register_user($register_data){
     $data = '\'' . implode('\', \'', $register_data) . '\'';
 
     global $db;
-    $db->exec("INSERT INTO `user` ($fields) VALUES ($data)");
+    //prepare query
+    $query = $db->prepare("INSERT INTO `user` (:fields) VALUES (:data)");
+
+    //bind parameters -- can i do this in a loop?
+    $query->bindParam(":username", $data['username']);
+    $query->bindParam(":password", $data['password']);
+    $query->bindParam(":first_name", $data['first_name']);
+    $query->bindParam(":last_name", $data['last_name']);
+    $query->bindParam(":email:", $data['email']);
+    $query->bindParam(":email_code", $data['email_code']);
+
+    //execute
+    $db->execute($query);
+    //$db->exec("INSERT INTO `user` ($fields) VALUES ($data)");
+    //$db->execute();
     //send email with code appended to the user
     email($register_data['email'], 'Activate you account',"Hello" . $register_data['first_name'] . "\nYou need to activate your account; use the link below. \n\n http://localhost/secondfile/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n - JT");
 }
@@ -134,6 +148,8 @@ function logged_in() {
 
 function user_exists($username){
     $username = sanitize($username);
+
+//changed to PDO
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM `user` WHERE username =:username");
     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
