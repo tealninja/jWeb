@@ -94,12 +94,8 @@ function change_password($user_id, $password) {
 }
 
 function register_user($register_data){
-    //array_walk($register_data, 'array_sanitize');
-    //$register_data['password'] =md5($register_data['password']);
+    $register_data['password'] =md5($register_data['password']);
     
-    $fields = '`' . implode('`, `',array_keys($register_data)) . '`';
-    $data = '\'' . implode('\', \'', $register_data) . '\'';
-
     global $db;
     //prepare query
     $query = $db->prepare("INSERT INTO user (`username`, `password`, `first_name`, `last_name`, `email`, `email_code`) VALUES (:username, :password, :first_name, :last_name, :email, :email_code)");
