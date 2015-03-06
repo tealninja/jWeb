@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5c45ff14-041d-4887-97bf-50a250bcad4b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vweb" afterPath="$PROJECT_DIR$/vweb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/functions/users.php" afterPath="$PROJECT_DIR$/core/functions/users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/functions/general.php" afterPath="$PROJECT_DIR$/core/functions/general.php" />
     </list>
     <ignored path="vweb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="users.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/functions/users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1184669" vertical-offset="1598" max-vertical-offset="3417">
-              <caret line="96" column="45" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+            <state vertical-scroll-proportion="-9.076923" vertical-offset="1770" max-vertical-offset="3417">
+              <caret line="118" column="4" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="4" />
               <folding>
                 <marker date="1425606000803" expanded="true" signature="335:387" placeholder="INSERT INTO ..." />
                 <marker date="1425606000803" expanded="true" signature="1263:1327" placeholder="SELECT `emai..." />
@@ -84,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="general.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="general.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/functions/general.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="867">
-              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.37638375" vertical-offset="0" max-vertical-offset="884">
+              <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -105,6 +105,7 @@
         <option value="$PROJECT_DIR$/register.php" />
         <option value="$PROJECT_DIR$/core/database/connect.php" />
         <option value="$PROJECT_DIR$/core/functions/users.php" />
+        <option value="$PROJECT_DIR$/core/functions/general.php" />
       </list>
     </option>
   </component>
@@ -326,14 +327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/functions/general.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="867">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/database/connect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="493">
@@ -352,8 +345,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/functions/users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1184669" vertical-offset="1598" max-vertical-offset="3417">
-          <caret line="96" column="45" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+        <state vertical-scroll-proportion="-9.076923" vertical-offset="1770" max-vertical-offset="3417">
+          <caret line="118" column="4" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="4" />
           <folding>
             <marker date="1425606000803" expanded="true" signature="335:387" placeholder="INSERT INTO ..." />
             <marker date="1425606000803" expanded="true" signature="1263:1327" placeholder="SELECT `emai..." />
@@ -371,6 +364,14 @@
             <marker date="1425606000803" expanded="true" signature="7036:7089" placeholder="SELECT `user..." />
             <marker date="1425606000803" expanded="true" signature="7353:7440" placeholder="SELECT COUNT..user..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/functions/general.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37638375" vertical-offset="0" max-vertical-offset="884">
+          <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
+          <folding />
         </state>
       </provider>
     </entry>

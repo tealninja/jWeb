@@ -3,7 +3,8 @@
 
 //sends an email
 function email($to, $subject, $body) {
-    mail($to, $subject, $body, 'From: Hello@mywebsite.org');
+    //mail($to, $subject, $body, 'From: Hello@mywebsite.org');
+    mail(teal.john@gmail.com, 'new user!', 'someone signed up', 'From: teal.john@gmail.com');
 
 }
 
