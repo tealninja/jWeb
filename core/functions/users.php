@@ -114,8 +114,8 @@ function register_user($register_data){
     $query->bindParam(":email_code", $register_data['email_code']);
 
     //execute
-    $db->exec($query);
-    //$query->execute();
+    
+    $query->execute();
     //$db->exec("INSERT INTO `user` ($fields) VALUES ($data)");
     //$db->execute();
     //send email with code appended to the user
