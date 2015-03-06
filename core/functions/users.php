@@ -106,12 +106,13 @@ function register_user($register_data){
 VALUES (:username, :password, :first_name, :last_name, :email, :email_code)");
 
     //bind parameters -- can i do this in a loop? I think i have to execute separate queries using foreach
-    $query->bindParam(":username", $data['username']);
-    $query->bindParam(":password", $data['password']);
-    $query->bindParam(":first_name", $data['first_name']);
-    $query->bindParam(":last_name", $data['last_name']);
-    $query->bindParam(":email:", $data['email']);
-    $query->bindParam(":email_code", $data['email_code']);
+    $query->bindParam(":username", $register_data['username']);
+    $query->bindParam(":password", $register_data['password']);
+    $query->bindParam(":first_name", $register_data['first_name']);
+    $query->bindParam(":last_name", $register_data['last_name']);
+    $query->bindParam(":last_name", $register_data['last_name']);
+    $query->bindParam(":email:", $register_data['email']);
+    $query->bindParam(":email_code", $register_data['email_code']);
 
     //execute
     $db->execute($query);
