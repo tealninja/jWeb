@@ -102,8 +102,7 @@ function register_user($register_data){
 
     global $db;
     //prepare query
-    $query = $db->prepare("INSERT INTO `user` (username, password, first_name, last_name, email, email_code)
-VALUES (:username, :password, :first_name, :last_name, :email, :email_code)");
+    $query = $db->prepare("INSERT INTO user(username, password, first_name, last_name, email, email_code) VALUES (:username, :password, :first_name, :last_name, :email, :email_code)");
 
     //bind parameters -- can i do this in a loop? I think i have to execute separate queries using foreach
     $query->bindParam(":username", $register_data['username']);
@@ -115,7 +114,7 @@ VALUES (:username, :password, :first_name, :last_name, :email, :email_code)");
     $query->bindParam(":email_code", $register_data['email_code']);
 
     //execute
-    $db->execute($query);
+    $query->execute();
     //$db->exec("INSERT INTO `user` ($fields) VALUES ($data)");
     //$db->execute();
     //send email with code appended to the user
