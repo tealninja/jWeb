@@ -94,11 +94,8 @@ function change_password($user_id, $password) {
 }
 
 function register_user($register_data){
-    //array_walk($register_data, 'array_sanitize');
-    //$register_data['password'] =md5($register_data['password']);
-    
-    //$fields = '`' . implode('`, `',array_keys($register_data)) . '`';
-    //$data = '\'' . implode('\', \'', $register_data) . '\'';
+    //has the pw. need to update to sha1 min #security
+    $register_data['password'] =md5($register_data['password']);
 
     global $db;
     //prepare query
