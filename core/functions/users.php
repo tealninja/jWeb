@@ -94,8 +94,8 @@ function change_password($user_id, $password) {
 }
 
 function register_user($register_data){
-    array_walk($register_data, 'array_sanitize');
-    $register_data['password'] =md5($register_data['password']);
+    //array_walk($register_data, 'array_sanitize');
+    //$register_data['password'] =md5($register_data['password']);
     
     $fields = '`' . implode('`, `',array_keys($register_data)) . '`';
     $data = '\'' . implode('\', \'', $register_data) . '\'';
