@@ -6,13 +6,14 @@ function email($to, $subject, $body) {
     //sends email using mailgun; see https://blog.openshift.com/email-in-the-cloud-with-mailgun/
     //mail($to, $subject, $body, 'From: Hello@mywebsite.org');
     //mail('teal.john@gmail.com', 'new user!', 'someone signed up', 'From: teal.john@gmail.com');
-
+    $api_key = 'key-9c6b17aa0ea761f75753b6d202616265';//key from mailgun
+    $domain = 'https://api.mailgun.net/v2/' . 'sandbox1190eeea19d443a19cbeb3e1163268ab.mailgun.org';
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-    curl_setopt($ch, CURLOPT_USERPWD, 'key-9c6b17aa0ea761f75753b6d202616265');
+    curl_setopt($ch, CURLOPT_USERPWD, 'api:' . $api_key);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_URL, 'sandbox1190eeea19d443a19cbeb3e1163268ab.mailgun.org'); //update with my domain
+    curl_setopt($ch, CURLOPT_URL,$domain); //update with my domain
     curl_setopt($ch, CURLOPT_POSTFIELDS,
         array(  'from'      =>'John Teal <teal.john@gmail.com>',
                 'to'        =>  $to,
