@@ -9,13 +9,13 @@ function email($to, $subject, $body) {
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-    curl_setopt($ch, CURLOPT_USERPWD, 'api:key-9c6b17aa0ea761f75753b6d202616265');
+    curl_setopt($ch, CURLOPT_USERPWD, 'key-9c6b17aa0ea761f75753b6d202616265');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
     curl_setopt($ch, CURLOPT_URL, 'sandbox1190eeea19d443a19cbeb3e1163268ab.mailgun.org'); //update with my domain
     curl_setopt($ch, CURLOPT_POSTFIELDS,
         array(  'from'      =>'John Teal <teal.john@gmail.com>',
-                'to'        =>$to,
+                'to'        =>  $to,
                 'subject'   => $subject,
                 'text'      => $body));
     $result = curl_exec($ch);
