@@ -75,7 +75,25 @@ function activate($email, $email_code) {
     //sanitize the data!
     $email = mysql_real_escape_string($email);
     $email_code = mysql_real_escape_string($email_code);
-    
+
+    //update query!
+    global $db;
+    global $db;
+    $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE email = :email and email_code = :email_code AND active = 0");
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':email_code', $email);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    //return ((($result['COUNT(user_id)']) == 1) ? true : false);
+    if ($result['COUNT(user_id)'] == 1) {
+        $stmt = $db->prepare(UPDATE user SET active = 1 WHERE email = :email);
+        $stmt->bindValue(':email', $email);
+        return true;
+    } else {
+        return false;
+    }
+}
+/*
     if (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email' AND `email_code`  = '$email_code' AND `active` = 0"),0) == 1) {
         //query to update acive status
         mysql_query("UPDATE `user` SET `active` = 1 WHERE `email` = '$email'");
@@ -83,7 +101,7 @@ function activate($email, $email_code) {
     } else {
         return false;
     }
-}
+}*/
 
 function change_password($user_id, $password) {
     $user_id = (int)$user_id;
