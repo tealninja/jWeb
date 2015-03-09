@@ -154,14 +154,13 @@ function logged_in() {
 }
 
 function user_exists($username){
-    $username = sanitize($username);
-
 //changed to PDO -- doesn't currently work
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username = :username");
     $stmt->bindParam(':username', $username);
     $stmt->execute();
     $result = $stmt->fetch();
+    print_r(($username));
     print_r($result);
     die();
     return (($result[$result['COUNT(user_id)']]) >= 1) ? true : false;
