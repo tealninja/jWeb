@@ -159,11 +159,10 @@ function user_exists($username){
 //changed to PDO -- doesn't currently work
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username = :username");
-    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    $stmt->bindParam(':username', $username);
     $stmt->execute();
     $result = $stmt->fetch();
     print_r($result);
-    print_r((($result[$result['COUNT(user_id)']])));// >= 1) ? true : false);
     die();
     return (($result[$result['COUNT(user_id)']]) >= 1) ? true : false;
     //$query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
