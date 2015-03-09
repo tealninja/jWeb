@@ -169,11 +169,11 @@ function user_exists($username){
 function email_exists($email){
     $email = sanitize($email);
     global $db;
-    $stmt = $db->prepare("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = :email");
-    $stmt->bindValue(":email", $email);
+    $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE email = :email");
+    $stmt->bindValue(":email", $email, PDO::PARAM_STR);
     $stmt->execute();
     $result = $stmt->fetch();
-    return ($result==1) ? true:false;
+    return ($result >=1) ? true:false;
     //$query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
     //return (mysql_result($query, 0) == 1) ? true : false;
 }
