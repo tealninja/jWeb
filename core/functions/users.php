@@ -163,7 +163,7 @@ function user_exists($username){
     $stmt->execute();
     $result = $stmt->fetch();
     print_r($result);
-    print_r((($result[$result['COUNT(user_id)']]));// >= 1) ? true : false);
+    print_r((($result[$result['COUNT(user_id)']])));// >= 1) ? true : false);
     die();
     return (($result[$result['COUNT(user_id)']]) >= 1) ? true : false;
     //$query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
