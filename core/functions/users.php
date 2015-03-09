@@ -175,7 +175,7 @@ function email_exists($email){
     $stmt->bindValue(":email", $email, PDO::PARAM_STR);
     $stmt->execute();
     $result = $stmt->fetch();
-    echo $result;
+    print_r($result);
     die();
     return ($result >=1) ? true:false;
     //$query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
