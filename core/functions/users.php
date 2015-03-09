@@ -157,7 +157,7 @@ function user_exists($username){
 
 //changed to PDO -- doesn't currently work
     global $db;
-    $stmt = $db->prepare("SELECT COUNT(user_id) FROM `user` WHERE username =:username");
+    $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username =:username");
     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
     $stmt->execute();
     return (count($stmt->fetch()) == 1) ? true : false;
