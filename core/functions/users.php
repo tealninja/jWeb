@@ -81,17 +81,17 @@ function activate($email, $email_code) {
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE email = :email and email_code = :email_code AND active = 0");
     $stmt->bindValue(':email', $email);
-    $stmt->bindValue(':email_code', $email);
+    $stmt->bindValue(':email_code', $email_code);
     $stmt->execute();
     $result = $stmt->fetch();
     //return ((($result['COUNT(user_id)']) == 1) ? true : false);
+        return false;
+    }
     if ($result['COUNT(user_id)'] == 1) {
         $stmt = $db->prepare("UPDATE user SET active = 1 WHERE email = :email");
         $stmt->bindValue(':email', $email);
         return true;
     } else {
-        return false;
-    }
 }
 /*
     if (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email' AND `email_code`  = '$email_code' AND `active` = 0"),0) == 1) {
