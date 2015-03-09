@@ -162,6 +162,8 @@ function user_exists($username){
     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
     $stmt->execute();
     $result = $stmt->fetch();
+    print_r($result)
+    $return false;
     return (count($result) >= 1) ? true : false;
     //$query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
     //return (mysql_result($query, 0) == 1) ? true : false;
@@ -175,9 +177,9 @@ function email_exists($email){
     $stmt->bindValue(":email", $email, PDO::PARAM_STR);
     $stmt->execute();
     $result = $stmt->fetch();
-    print_r($result);
-    die();
-    return ($result >=1) ? true:false;
+    //die();
+    return false;
+    //return ($result >=1) ? true:false;
     //$query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
     //return (mysql_result($query, 0) == 1) ? true : false;
     $db = null;
