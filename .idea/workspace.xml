@@ -31,26 +31,26 @@
       <file leaf-file-name="users.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/functions/users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0592334" vertical-offset="2671" max-vertical-offset="3655">
-              <caret line="175" column="21" selection-start-line="175" selection-start-column="21" selection-end-line="175" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.86821705" vertical-offset="2139" max-vertical-offset="3706">
+              <caret line="139" column="4" selection-start-line="139" selection-start-column="4" selection-end-line="139" selection-end-column="4" />
               <folding>
-                <marker date="1425863491483" expanded="true" signature="335:387" placeholder="INSERT INTO ..." />
-                <marker date="1425863491483" expanded="true" signature="1263:1327" placeholder="SELECT `emai..." />
-                <marker date="1425863491483" expanded="true" signature="1668:1744" placeholder="SELECT COUNT..." />
-                <marker date="1425863491483" expanded="true" signature="3170:3281" placeholder="SELECT COUNT..." />
-                <marker date="1425863491483" expanded="true" signature="3932:4031" placeholder="INSERT INTO ..." />
-                <marker date="1425863491483" expanded="true" signature="3932:4099" placeholder="INSERT INTO ..." />
-                <marker date="1425863491483" expanded="true" signature="3932:4101" placeholder="INSERT INTO ..." />
-                <marker date="1425863491483" expanded="true" signature="5272:5326" placeholder="SELECT COUNT..." />
-                <marker date="1425863491483" expanded="true" signature="5683:5728" placeholder="SELECT ${$fi..." />
-                <marker date="1425863491483" expanded="true" signature="6022:6080" placeholder="SELECT COUNT..." />
-                <marker date="1425863491483" expanded="true" signature="6506:6558" placeholder="SELECT COUNT..user..." />
-                <marker date="1425863491483" expanded="true" signature="6518:6558" placeholder="INSERT INTO ..." />
-                <marker date="1425863491483" expanded="true" signature="6737:6797" placeholder="SELECT COUNT..." />
-                <marker date="1425863491483" expanded="true" signature="6960:7035" placeholder="SELECT COUNT..user..." />
-                <marker date="1425863491483" expanded="true" signature="7218:7277" placeholder="SELECT `user..." />
-                <marker date="1425863491483" expanded="true" signature="7403:7456" placeholder="SELECT `user..." />
-                <marker date="1425863491483" expanded="true" signature="7720:7807" placeholder="SELECT COUNT..user..." />
+                <marker date="1425863829080" expanded="true" signature="335:387" placeholder="INSERT INTO ..." />
+                <marker date="1425863829080" expanded="true" signature="1263:1327" placeholder="SELECT `emai..." />
+                <marker date="1425863829080" expanded="true" signature="1668:1744" placeholder="SELECT COUNT..." />
+                <marker date="1425863829080" expanded="true" signature="3170:3281" placeholder="SELECT COUNT..." />
+                <marker date="1425863829080" expanded="true" signature="3932:4031" placeholder="INSERT INTO ..." />
+                <marker date="1425863829080" expanded="true" signature="3932:4099" placeholder="INSERT INTO ..." />
+                <marker date="1425863829080" expanded="true" signature="3932:4101" placeholder="INSERT INTO ..." />
+                <marker date="1425863829080" expanded="true" signature="5288:5342" placeholder="SELECT COUNT..." />
+                <marker date="1425863829080" expanded="true" signature="5699:5744" placeholder="SELECT ${$fi..." />
+                <marker date="1425863829080" expanded="true" signature="6038:6096" placeholder="SELECT COUNT..." />
+                <marker date="1425863829080" expanded="true" signature="6538:6590" placeholder="SELECT COUNT..user..." />
+                <marker date="1425863829080" expanded="true" signature="6550:6590" placeholder="INSERT INTO ..." />
+                <marker date="1425863829080" expanded="true" signature="6769:6829" placeholder="SELECT COUNT..." />
+                <marker date="1425863829080" expanded="true" signature="7008:7083" placeholder="SELECT COUNT..user..." />
+                <marker date="1425863829080" expanded="true" signature="7266:7325" placeholder="SELECT `user..." />
+                <marker date="1425863829080" expanded="true" signature="7451:7504" placeholder="SELECT `user..." />
+                <marker date="1425863829080" expanded="true" signature="7768:7855" placeholder="SELECT COUNT..user..." />
               </folding>
             </state>
           </provider>
@@ -348,26 +348,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/functions/users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0592334" vertical-offset="2671" max-vertical-offset="3655">
-          <caret line="175" column="21" selection-start-line="175" selection-start-column="21" selection-end-line="175" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.86821705" vertical-offset="2139" max-vertical-offset="3706">
+          <caret line="139" column="4" selection-start-line="139" selection-start-column="4" selection-end-line="139" selection-end-column="4" />
           <folding>
-            <marker date="1425863491483" expanded="true" signature="335:387" placeholder="INSERT INTO ..." />
-            <marker date="1425863491483" expanded="true" signature="1263:1327" placeholder="SELECT `emai..." />
-            <marker date="1425863491483" expanded="true" signature="1668:1744" placeholder="SELECT COUNT..." />
-            <marker date="1425863491483" expanded="true" signature="3170:3281" placeholder="SELECT COUNT..." />
-            <marker date="1425863491483" expanded="true" signature="3932:4031" placeholder="INSERT INTO ..." />
-            <marker date="1425863491483" expanded="true" signature="3932:4099" placeholder="INSERT INTO ..." />
-            <marker date="1425863491483" expanded="true" signature="3932:4101" placeholder="INSERT INTO ..." />
-            <marker date="1425863491483" expanded="true" signature="5272:5326" placeholder="SELECT COUNT..." />
-            <marker date="1425863491483" expanded="true" signature="5683:5728" placeholder="SELECT ${$fi..." />
-            <marker date="1425863491483" expanded="true" signature="6022:6080" placeholder="SELECT COUNT..." />
-            <marker date="1425863491483" expanded="true" signature="6506:6558" placeholder="SELECT COUNT..user..." />
-            <marker date="1425863491483" expanded="true" signature="6518:6558" placeholder="INSERT INTO ..." />
-            <marker date="1425863491483" expanded="true" signature="6737:6797" placeholder="SELECT COUNT..." />
-            <marker date="1425863491483" expanded="true" signature="6960:7035" placeholder="SELECT COUNT..user..." />
-            <marker date="1425863491483" expanded="true" signature="7218:7277" placeholder="SELECT `user..." />
-            <marker date="1425863491483" expanded="true" signature="7403:7456" placeholder="SELECT `user..." />
-            <marker date="1425863491483" expanded="true" signature="7720:7807" placeholder="SELECT COUNT..user..." />
+            <marker date="1425863829080" expanded="true" signature="335:387" placeholder="INSERT INTO ..." />
+            <marker date="1425863829080" expanded="true" signature="1263:1327" placeholder="SELECT `emai..." />
+            <marker date="1425863829080" expanded="true" signature="1668:1744" placeholder="SELECT COUNT..." />
+            <marker date="1425863829080" expanded="true" signature="3170:3281" placeholder="SELECT COUNT..." />
+            <marker date="1425863829080" expanded="true" signature="3932:4031" placeholder="INSERT INTO ..." />
+            <marker date="1425863829080" expanded="true" signature="3932:4099" placeholder="INSERT INTO ..." />
+            <marker date="1425863829080" expanded="true" signature="3932:4101" placeholder="INSERT INTO ..." />
+            <marker date="1425863829080" expanded="true" signature="5288:5342" placeholder="SELECT COUNT..." />
+            <marker date="1425863829080" expanded="true" signature="5699:5744" placeholder="SELECT ${$fi..." />
+            <marker date="1425863829080" expanded="true" signature="6038:6096" placeholder="SELECT COUNT..." />
+            <marker date="1425863829080" expanded="true" signature="6538:6590" placeholder="SELECT COUNT..user..." />
+            <marker date="1425863829080" expanded="true" signature="6550:6590" placeholder="INSERT INTO ..." />
+            <marker date="1425863829080" expanded="true" signature="6769:6829" placeholder="SELECT COUNT..." />
+            <marker date="1425863829080" expanded="true" signature="7008:7083" placeholder="SELECT COUNT..user..." />
+            <marker date="1425863829080" expanded="true" signature="7266:7325" placeholder="SELECT `user..." />
+            <marker date="1425863829080" expanded="true" signature="7451:7504" placeholder="SELECT `user..." />
+            <marker date="1425863829080" expanded="true" signature="7768:7855" placeholder="SELECT COUNT..user..." />
           </folding>
         </state>
       </provider>

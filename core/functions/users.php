@@ -124,6 +124,7 @@ function register_user($register_data){
         "&email_code=" .
         $register_data['email_code'] .
         "\n\n - JT");
+    $db = null;
 }
 
 function user_count(){
@@ -164,6 +165,7 @@ function user_exists($username){
     return (count($result) >= 1) ? true : false;
     //$query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
     //return (mysql_result($query, 0) == 1) ? true : false;
+    $db = null;
 }
 
 function email_exists($email){
@@ -176,6 +178,7 @@ function email_exists($email){
     return ($result >=1) ? true:false;
     //$query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
     //return (mysql_result($query, 0) == 1) ? true : false;
+    $db = null;
 }
 
 function user_active($username){
