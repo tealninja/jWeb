@@ -86,7 +86,7 @@ function activate($email, $email_code) {
     $result = $stmt->fetch();
     //return ((($result['COUNT(user_id)']) == 1) ? true : false);
     if ($result['COUNT(user_id)'] == 1) {
-        $stmt = $db->prepare(UPDATE user SET active = 1 WHERE email = :email);
+        $stmt = $db->prepare("UPDATE user SET active = 1 WHERE email = :email");
         $stmt->bindValue(':email', $email);
         return true;
     } else {
