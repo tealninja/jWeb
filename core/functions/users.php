@@ -154,10 +154,10 @@ function logged_in() {
 }
 
 function user_exists($username){
-//changed to PDO -- doesn't currently work
+//changed to PDO -- do i need to sanitize?
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username = :username");
-    $stmt->bindParam(':username', $username);
+    $stmt->bindValue(':username', $username);
     $stmt->execute();
     $result = $stmt->fetch();
     return ((($result['COUNT(user_id)']) >= 1) ? true : false);
@@ -167,14 +167,13 @@ function user_exists($username){
     $db = null;
 }
 
-function email_exists($email){
-    $email = sanitize($email);
+function email_exists($email){ //do i need to sanitize?
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE email = :email");
     $stmt->bindValue(":email", $email, PDO::PARAM_STR);
     $stmt->execute();
     $result = $stmt->fetch();
-    return ($result[$result['COUNT(user_id)']] >=1) ? true:false;
+    return ($result['COUNT(user_id)'] >=1) ? true:false;
     //$query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
     //return (mysql_result($query, 0) == 1) ? true : false;
     $db = null;
