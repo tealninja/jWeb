@@ -116,7 +116,14 @@ function register_user($register_data){
     //$db->exec("INSERT INTO `user` ($fields) VALUES ($data)");
     //$db->execute();
     //send email with code appended to the user
-    email($register_data['email'], 'Activate you account',"Hello" . $register_data['first_name'] . "\nYou need to activate your account; use the link below. \n\n http://localhost/secondfile/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n - JT");
+    email($register_data['email'], 'Activate you account',"Hello" .
+        $register_data['first_name'] .
+        "\nYou need to activate your account; use the link below. \n\n
+        http://http://vweb-tealninja.rhcloud.com//activate.php?email=" .
+        $register_data['email'] .
+        "&email_code=" .
+        $register_data['email_code'] .
+        "\n\n - JT");
 }
 
 function user_count(){
@@ -148,7 +155,7 @@ function logged_in() {
 function user_exists($username){
     $username = sanitize($username);
 
-//changed to PDO
+//changed to PDO -- doesn't currently work
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM `user` WHERE username =:username");
     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
@@ -160,8 +167,13 @@ function user_exists($username){
 
 function email_exists($email){
     $email = sanitize($email);
-    $query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
-    return (mysql_result($query, 0) == 1) ? true : false;
+    global $db;
+    $stmt = $db->prepare("SELECT COUNT(`user_id`) FROM 'user' WHERE 'email'= :email");
+    $stmt->bindValue(":email", $email);
+    $result = $stmt->execute();
+    return ($result==1) ? true:false;
+    //$query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
+    //return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function user_active($username){
