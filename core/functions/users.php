@@ -4,10 +4,23 @@ function submit_quick_report($user_id, $report_data) {
     //built from the register fucntions
     $report_data['user_id'] = $user_id;
     array_walk($report_data, 'array_sanitize');
-    $fields = '`' . implode('`, `',array_keys($report_data)) . '`';
-    $data = '\'' . implode('\', \'', $report_data) . '\'';
+    $fields = implode('`','`, ',array_keys($report_data));
+    $data = implode(', ', $report_data);
+    //("INSERT INTO user (`username`, `password`, `first_name`, `last_name`, `email`, `email_code`) VALUES (:username, :password, :first_name, :last_name, :email, :email_code)");
+    global $db;
+    $stmt = $db->prepare("INSERT INTO `quick_reports` :fields VALUES :data");
+    //bind parameters in loop. foreach  arraykey bindParam(arraykey, array[arraykey]
+    $stmt->bindParam(':fields', $fields);
+    $stmt->bindParam(':data', $data);
+    //die();
+    try {
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        die("<h1>Database problem!</h1>");
+    }
 
-    mysql_query("INSERT INTO `quick_reports` ($fields) VALUES ($data)");
+    //mysql_query("INSERT INTO `quick_reports` ($fields) VALUES ($data)");
     //consider sending an email to the user to confirm tha the data has been submitted. Or other users.
 }
 
@@ -36,14 +49,18 @@ $query = mysql_query("SELECT `email`, `first_name` FROM `user` WHERE `allow_emai
 function has_access($user_id, $type) {
     $user_id    = (int)($user_id);
     $type       = (int)$type;
-    
-    return (mysql_result(mysql_query("SELECT COUNT(`user_id`) from `user` WHERE `user_id` = $user_id AND `type` = $type"), 0) == 1) ? true : false;
+    global $db;
+    $stmt = $db->prepare("SELECT (`type`) from user WHERE user_id = :user_id");
+    $stmt->bindParam(':user_id',$user_id);
+    //$stmt->bindParam(':type',$type);
+    $stmt->execute();
+    $result = $stmt->fetch();// == 1) ? true : false;
+    return ((int)$result['type'] == $type) ? true : false;
 }
 
 function recover($mode, $email) {
     $mode   = sanitize($mode);
     $email  = sanitize($email);
-    
     $user_data = user_data(user_id_from_email($email), 'first_name', 'username', 'user_id');
     
     if ($mode == 'username') {
@@ -51,9 +68,7 @@ function recover($mode, $email) {
     } else if ($mode == 'password') {
         $generated_password = substr(md5(rand(999,999999)),0,8);
         change_password($user_data['user_id'], $generated_password);
-        
         update_user($user_data['user_id'], array('password_recover' =>'1'));
-        
         email($user_data['email'],'Your password recovery',"hello " . $user_data['user_id'] . ', your new password is ' . $generated_password . "\n-admin");
     }
 }
@@ -72,42 +87,32 @@ function update_user($user_id, $update_data) {
 }
 
 function activate($email, $email_code) {
-    //sanitize the data!
-    $email = mysql_real_escape_string($email);
-    $email_code = mysql_real_escape_string($email_code);
-
-    //update query!
-    global $db;
+    //do we need to sanitize thed data?!
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE email = :email and email_code = :email_code AND active = 0");
     $stmt->bindValue(':email', $email);
     $stmt->bindValue(':email_code', $email_code);
     $stmt->execute();
     $result = $stmt->fetch();
-    //return ((($result['COUNT(user_id)']) == 1) ? true : false);
-        return false;
-    }
+
     if ($result['COUNT(user_id)'] == 1) {
         $stmt = $db->prepare("UPDATE user SET active = 1 WHERE email = :email");
         $stmt->bindValue(':email', $email);
-        return true;
-    } else {
-}
-/*
-    if (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email' AND `email_code`  = '$email_code' AND `active` = 0"),0) == 1) {
-        //query to update acive status
-        mysql_query("UPDATE `user` SET `active` = 1 WHERE `email` = '$email'");
+        $stmt->execute();
         return true;
     } else {
         return false;
     }
-}*/
 
+}
 function change_password($user_id, $password) {
     $user_id = (int)$user_id;
     $password = md5($password);
-
-    mysql_query("UPDATE `user` SET `password` = '$password', `password_recover` = 0 WHERE `user_id` = $user_id");
+    global $db;
+    $stmt = $db->prepare("UPDATE user SET password = :password, password_recover = 0 WHERE user_id = :user_id");
+    $stmt->bindParam(':password',$password);
+    $stmt ->bindParam(':user_id', $user_id);
+    $stmt->execute();
 
 }
 
@@ -127,13 +132,8 @@ function register_user($register_data){
     $query->bindParam(":last_name", $register_data['last_name']);
     $query->bindParam(":email", $register_data['email']);
     $query->bindParam(":email_code", $register_data['email_code']);
-
-    //execute
-
     $query->execute();
-    //$db->exec("INSERT INTO `user` ($fields) VALUES ($data)");
-    //$db->execute();
-    //send email with code appended to the user
+
     email($register_data['email'], 'Activate you account',"Hello" .
         $register_data['first_name'] .
         "\nYou need to activate your account; use the link below. \n\n
@@ -158,11 +158,13 @@ function user_data($user_id){
     
     if($func_num_args > 1){
         unset($func_get_args[0]);
-        
         $fields = '`' . implode('`,`', $func_get_args) . '`';
-        $data = mysql_fetch_assoc(mysql_query("SELECT $fields FROM `user` WHERE `user_id` = $user_id"));
-        
-        return $data;
+        global $db;
+        $stmt = $db->prepare("SELECT $fields FROM user WHERE user_id = :user_id");
+        $stmt->bindValue(':user_id', $user_id);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result;
     }
 
 }
@@ -172,16 +174,13 @@ function logged_in() {
 }
 
 function user_exists($username){
-//changed to PDO -- do i need to sanitize?
+    $username = sanitize($username);//changed to PDO -- do i need to sanitize?
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username = :username");
     $stmt->bindValue(':username', $username);
     $stmt->execute();
     $result = $stmt->fetch();
     return ((($result['COUNT(user_id)']) >= 1) ? true : false);
-    die();
-    //$query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username'");
-    //return (mysql_result($query, 0) == 1) ? true : false;
     $db = null;
 }
 
@@ -192,21 +191,30 @@ function email_exists($email){ //do i need to sanitize?
     $stmt->execute();
     $result = $stmt->fetch();
     return ($result['COUNT(user_id)'] >=1) ? true:false;
-    //$query = mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'");
-    //return (mysql_result($query, 0) == 1) ? true : false;
     $db = null;
+
 }
 
 function user_active($username){
-    $username = sanitize($username);
-    $query = mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username' AND active = 1");
-    return (mysql_result($query, 0) == 1) ? true : false;
+    $username = sanitize($username); // is this necessary?
+    global $db;
+    $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username = :username  AND active = 1");
+    $stmt->bindValue(":username", $username, PDO::PARAM_STR);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    return ($result['COUNT(user_id)'] >=1) ? true:false;
+    $db = null;
 }
-
 
 function user_id_from_username($username){
     $username = sanitize($username);
-    return mysql_result(mysql_query("SELECT `user_id` FROM `user` WHERE `username` = '$username'"),0,'user_id');
+    global $db;
+    $stmt = $db->prepare("SELECT user_id FROM user WHERE username = :username");
+    $stmt->bindValue(":username", $username, PDO::PARAM_STR);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    return ($result['user_id']);
+    $db = null;
 }
 
 
@@ -217,12 +225,18 @@ function user_id_from_email($email){
 
 function login($username, $password){
     $user_id = user_id_from_username($username);
-    
-    //sanitize username and encrypt password
-    $username = sanitize($username);
-    $password = md5($password);
 
-    return(mysql_result(mysql_query("SELECT COUNT(user_id) FROM user WHERE username = '$username' AND password = '$password'"),0) == 1) ? $user_id : false;
+    //sanitize username and encrypt password
+    //$username = sanitize($username);
+    $password = md5($password);
+    global $db;
+    $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username = :username AND password = :password");
+    $stmt->bindValue(":username", $username, PDO::PARAM_STR);
+    $stmt->bindValue(":password", $password, PDO::PARAM_STR);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    return ($result['COUNT(user_id)'] >=1) ? $user_id:false;
+    $db = null;
     
 }
 

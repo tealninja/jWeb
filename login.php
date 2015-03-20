@@ -10,7 +10,7 @@ if (empty($_POST) === false) {
         $errors[] = 'you need to enter a username and password';
         
     } else if(user_exists($username) === false){
-        $errors[] = 'username not available';            
+        $errors[] = 'username not available';
     
     } else if(user_active($username) === false){
         $errors[] = 'accounts not activated';
