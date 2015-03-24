@@ -176,7 +176,6 @@ function logged_in() {
 }
 
 function user_exists($username){
-    $username = sanitize($username);//changed to PDO -- do i need to sanitize?
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username = :username");
     $stmt->bindValue(':username', $username);
