@@ -2,7 +2,7 @@
 
 $connect_error = '<h1>No database connection right now</h1>'; //send a custom error message
 
-$local_db = false;
+$local_db = true;
 
 if ($local_db == true){ //use this for development purposes on xampp
 

@@ -183,6 +183,8 @@ function user_exists($username){
     try {
         $stmt->execute();
         $result = $stmt->fetch();
+        print_r($result['COUNT(user_id)']);
+        die();
         return ((($result['COUNT(user_id)']) >= 1) ? true : false);
     } catch (PDOException $e) {
         print_r($stmt);
