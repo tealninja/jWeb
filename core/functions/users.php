@@ -180,10 +180,16 @@ function user_exists($username){
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username = :username");
     $stmt->bindValue(':username', $username);
-    $stmt->execute();
-    $result = $stmt->fetch();
-    return ((($result['COUNT(user_id)']) >= 1) ? true : false);
-    $db = null;
+    try {
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return ((($result['COUNT(user_id)']) >= 1) ? true : false);
+    } catch (PDOException $e) {
+        print_r($stmt);
+        echo $e->getMessage();
+        die("<h1>Database problem!</h1>");
+    }
+
 }
 
 function email_exists($email){ //do i need to sanitize?
