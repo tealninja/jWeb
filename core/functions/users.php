@@ -2,19 +2,21 @@
 
 function submit_quick_report($user_id, $report_data) {
     //built from the register fucntions
-    $report_data['user_id'] = $user_id;
+    //$report_data['user_id'] = $user_id;
     array_walk($report_data, 'array_sanitize');
-    $fields = implode('`','`, ',array_keys($report_data));
-    $data = implode(', ', $report_data);
-    //("INSERT INTO user (`username`, `password`, `first_name`, `last_name`, `email`, `email_code`) VALUES (:username, :password, :first_name, :last_name, :email, :email_code)");
+    $fields = array_keys($report_data);
+    $placeholders = $fields;
+    foreach($placeholders as &$value){
+        $value = ':' . $value;
+    }
+    $fields = (implode(', ',$fields));
+    // REF ("INSERT INTO user (`username`, `password`, `first_name`, `last_name`, `email`, `email_code`) VALUES (:username, :password, :first_name, :last_name, :email, :email_code)");
     global $db;
-    $stmt = $db->prepare("INSERT INTO `quick_reports` :fields VALUES :data");
-    //bind parameters in loop. foreach  arraykey bindParam(arraykey, array[arraykey]
-    $stmt->bindParam(':fields', $fields);
-    $stmt->bindParam(':data', $data);
-    //die();
+    $stmt = $db->prepare("INSERT INTO quick_reports (" . $fields . ")  VALUES (" . implode(' ,', $placeholders) . ")");
+    print_r($stmt);
+    print_r('<br>');
     try {
-        $stmt->execute();
+        $stmt->execute($report_data);
     } catch (PDOException $e) {
         echo $e->getMessage();
         die("<h1>Database problem!</h1>");
