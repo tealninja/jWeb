@@ -213,7 +213,6 @@ function user_active($username){
 }
 
 function user_id_from_username($username){
-    $username = sanitize($username);
     global $db;
     $stmt = $db->prepare("SELECT user_id FROM user WHERE username = :username");
     $stmt->bindValue(":username", $username, PDO::PARAM_STR);
@@ -242,7 +241,6 @@ function login($username, $password){
     $stmt->execute();
     $result = $stmt->fetch();
     return ($result['COUNT(user_id)'] >=1) ? $user_id:false;
-    $db = null;
     
 }
 
