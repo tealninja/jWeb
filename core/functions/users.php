@@ -203,7 +203,6 @@ function email_exists($email){ //do i need to sanitize?
 }
 
 function user_active($username){
-    $username = sanitize($username); // is this necessary?
     global $db;
     $stmt = $db->prepare("SELECT COUNT(user_id) FROM user WHERE username = :username  AND active = 1");
     $stmt->bindValue(":username", $username, PDO::PARAM_STR);
